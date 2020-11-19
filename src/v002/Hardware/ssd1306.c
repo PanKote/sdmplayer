@@ -519,9 +519,9 @@ void ssd1306_I2C_WriteMulti(uint8_t address, uint8_t reg, uint8_t* data, uint16_
 	uint8_t dt[count + 1];
 	dt[0] = reg;
 	uint8_t i;
-	for(i = 1; i <= count; i++)
+	for(i = 1; i <= (count+1); i++)
 		dt[i] = data[i-1];
-	HAL_I2C_Master_Transmit(&SSD1306_I2C, address, dt, count, 10);
+	HAL_I2C_Master_Transmit(&SSD1306_I2C, address, dt, (count+1), 10);
 }
 
 
